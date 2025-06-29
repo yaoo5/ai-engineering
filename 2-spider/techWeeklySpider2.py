@@ -71,7 +71,7 @@ def send_message(robot_url, data):
             "content": {
                 "post": {
                     "zh_cn": {
-                        "title": "科技爱好者周刊｜⏰ 更新提醒",
+                        "title": "【dev】科技爱好者周刊｜⏰ 更新提醒",
                         "content": [
                             [
                                 {
@@ -114,7 +114,7 @@ def send_message(robot_url, data):
                                 },
                                 {
                                     "tag": "a",
-                                    "text": ">>> 全部内容\n\n",
+                                    "text": ">>> 查看更多\n\n",
                                     "href": "https://www.ruanyifeng.com/blog/weekly/"
                                 },
                                 {
