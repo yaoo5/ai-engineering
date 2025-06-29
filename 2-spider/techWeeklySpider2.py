@@ -89,7 +89,7 @@ def send_message(robot_url, data):
                                 },
                                 {
                                     "tag": "text",
-                                    "text": "往期回顾\n",
+                                    "text": "🦃 往期回顾\n",
                                 },
                                 {
                                     "tag": "a",

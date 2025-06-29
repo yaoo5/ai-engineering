@@ -1,5 +1,5 @@
 # python-start
-> Python学习记录。
+> Python学习记录。仅用作爬虫学习，侵权删。
 
 ## 入门练习
 > 第一部分比较简单，只运用到基本的爬虫知识（requests、beautiful soup、 pyQuery等）
@@ -18,7 +18,6 @@
 
 5、2025-06-29: [爬虫篇｜阮一峰周刊](./2-spider/techWeeklySpider.py)
 > 自己想写的，练习一下上个练习中的知识点。request + pyQuery + 文本保存
-
 
 6、2025-06-29: [爬虫篇｜阮一峰周刊2](./2-spider/techWeeklySpider2.py)
 > 自己想写的，练习一下上个练习中的知识点。request + pyQuery + 通知
