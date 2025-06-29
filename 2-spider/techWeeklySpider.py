@@ -71,7 +71,7 @@ def main():
     html = get_source_code(url)
     weeklyData = parse_weekly(html)
 
-    save_json(weeklyData, 'ruanyifeng.weekly.json')
+    save_json(weeklyData, 'tech.weekly.json')
 
 
 if __name__ == '__main__':
