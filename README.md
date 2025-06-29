@@ -16,5 +16,9 @@
 4、2025-06-29: [爬虫篇｜SSR网站电影列表](./2-spider/ssrSpider.py)
 > [崔庆才爬虫网站](https://cuiqingcai.com/17777.html)中的实战项目，自己写了一遍。
 
-5、2025-06-29: [爬虫篇｜阮一峰周刊](./2-spider/ruanyifengWeeklySpider.py)
-> 自己想写的，练习一下上个练习中的知识点。
+5、2025-06-29: [爬虫篇｜阮一峰周刊](./2-spider/techWeeklySpider.py)
+> 自己想写的，练习一下上个练习中的知识点。request + pyQuery + 文本保存
+
+
+6、2025-06-29: [爬虫篇｜阮一峰周刊](./2-spider/techWeeklySpider2.py)
+> 自己想写的，练习一下上个练习中的知识点。request + pyQuery + 通知
