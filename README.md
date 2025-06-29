@@ -20,5 +20,5 @@
 > 自己想写的，练习一下上个练习中的知识点。request + pyQuery + 文本保存
 
 
-6、2025-06-29: [爬虫篇｜阮一峰周刊](./2-spider/techWeeklySpider2.py)
+6、2025-06-29: [爬虫篇｜阮一峰周刊2](./2-spider/techWeeklySpider2.py)
 > 自己想写的，练习一下上个练习中的知识点。request + pyQuery + 通知
