@@ -1,0 +1,58 @@
+# Python 编译缓存
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 开发环境和IDE配置
+.idea/
+.vscode/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.pyproj
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.swp
+*.bak
+*.sublime-*
+*.orig
+
+# 数据集和大型文件
+*.csv
+*.json
+*.xlsx
+*.sqlite
+*.db
+
+# 系统文件
+Thumbs.db
+desktop.ini
+
+# 依赖目录
+venv/
+env/
+.venv/
+env.bak/
+venv.bak/
+
+# 编译输出
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# 其他
+coverage.xml
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
