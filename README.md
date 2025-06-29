@@ -10,3 +10,5 @@
 - 2025-06-27: [爬虫篇｜读取股票价格](./1-base/stockPrice.py)
 
 - 2025-06-29: [爬虫篇｜SSR网站电影列表](./2-spider/ssrSpider.py)
+
+- 2025-06-29: [爬虫篇｜阮一峰周刊](./2-spider/ruanyifengWeeklySpider.py)
