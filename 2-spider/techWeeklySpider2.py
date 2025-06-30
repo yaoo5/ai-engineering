@@ -71,7 +71,7 @@ def send_message(robot_url, data):
             "content": {
                 "post": {
                     "zh_cn": {
-                        "title": "【dev】科技爱好者周刊｜⏰ 更新提醒",
+                        "title": "科技爱好者周刊｜⏰ 更新提醒",
                         "content": [
                             [
                                 {
