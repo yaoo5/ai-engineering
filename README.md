@@ -21,3 +21,6 @@
 
 6、2025-06-29: [爬虫篇｜阮一峰周刊2](./2-spider/techWeeklySpider2.py)
 > 自己想写的，练习一下上个练习中的知识点。request + pyQuery + 通知
+
+7. 2025-07-03: [爬虫篇｜掘金文章](./2-spider/juejinSpider.py)
+> 自己想写的，单页面应用得用selenium或playwright，我选了playwright安装更方便。
