@@ -3,6 +3,8 @@ from playwright.sync_api import sync_playwright
 import logging
 import requests
 import sys
+from concurrent.futures import ThreadPoolExecutor
+# ThreadPoolExecutor
 
 logging.basicConfig(
     level=logging.INFO,
@@ -10,6 +12,7 @@ logging.basicConfig(
 )
 
 def scrape_page_list(url, max_size = 5):
+    logging.info(f'scrape_page_list start, {url}')
     articles = []
 
     with sync_playwright() as p:
@@ -24,11 +27,12 @@ def scrape_page_list(url, max_size = 5):
 
         # 访问掘金页面
         page.goto(url, timeout=60000)
-
-        page.wait_for_timeout(1000)  # 等待加载
+        # page.wait_for_timeout(2000)  # 等待加载
+        page.wait_for_selector('.entry-list > .item', state='attached', timeout=10000)  # 等待文章容器加载
 
         articles_elems = page.query_selector_all('.entry-list > .item')
 
+        # TODO 这里应该加一个id去重、阅读量最小值
         for article_elem in articles_elems[:max_size]:
             title = article_elem.query_selector('.title-row a.title').text_content().strip()
             detail_url = article_elem.query_selector('.title-row a.title').get_attribute('href')
@@ -45,10 +49,11 @@ def scrape_page_list(url, max_size = 5):
 
         browser.close()
     
+    logging.info(f'scrape_page_list success, {url}')
     return articles
 
 def send_message(robot_url, articles):
-    logging.info('send_message start')
+    logging.info(f'send_message start, {len(articles)}')
 
     if not robot_url:
         logging.error('send_message failed, not robot_url')
@@ -57,29 +62,27 @@ def send_message(robot_url, articles):
     headers = {
         "Content-Type": "application/json"
     }
+
+    articles_msg = []
+    for idx, article in enumerate(articles, 1):
+        articles_msg.append({
+            "tag": "a",
+            "text": f"{idx}、{article['title']}",
+            "href": article['detail_url']
+        })
+        articles_msg.append({
+            "tag": "text",
+            "text": f" @{article['user']}  (阅读量：{article['view']})\n"
+        })
+
     robot_data = {
         "msg_type": "post",
         "content": {
             "post": {
                 "zh_cn": {
-                    "title": "掘金｜⏰ 本周榜单",
+                    "title": "掘金｜💰 精彩文章推荐",
                     "content": [
-                        [
-                            {
-                                "tag": "a",
-                                "text": f"1. {articles[0]['title']}\n",
-                                "href": articles[1]['detail_url']
-                            },
-                            {
-                                "tag": "a",
-                                "text": ">>> 查看更多\n\n",
-                                "href": "https://juejin.cn/recommended"
-                            },
-                            {
-                                "tag": "at",
-                                "user_id": "all"
-                            }
-                        ]
+                        articles_msg
                     ]
                 }
             }
@@ -98,11 +101,33 @@ def get_robot_url():
 
     return command_robot_url
 
+# TODO 偶尔运行报错，这是什么毛病
 def main():
-    articles = scrape_page_list("https://juejin.cn/recommended", 10)
+    articles_all = []
+
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        # 提交所有爬取任务
+        future_rec = executor.submit(scrape_page_list, "https://juejin.cn/recommended", 3)
+        future_art = executor.submit(scrape_page_list, "https://juejin.cn/article", 2)
+        future_car = executor.submit(scrape_page_list, "https://juejin.cn/career", 3)
+        future_ai = executor.submit(scrape_page_list, "https://juejin.cn/ai", 2)
+        
+        # 获取结果
+        articles_recommended = future_rec.result()
+        articles_article = future_art.result()
+        articles_career = future_car.result()
+        articles_ai = future_ai.result()
     
+    articles_all.extend(
+        articles_recommended +
+        articles_article +
+        articles_career +
+        articles_ai
+    )
+
+    print(f'all, {len(articles_all)}')
     robot_url = get_robot_url()
-    send_message(robot_url, articles)
+    send_message(robot_url, articles_all)
 
 
 if __name__ == '__main__':
