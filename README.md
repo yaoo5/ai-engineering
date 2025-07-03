@@ -2,7 +2,7 @@
 > Python学习记录。仅用作爬虫学习，侵权删。
 
 ## 入门练习
-> 第一部分比较简单，只运用到基本的爬虫知识（requests、beautiful soup、 pyQuery等）
+> 第一部分比较简单，只运用到基本的爬虫知识（requests、beautiful soup、 pyQuery、playwright等）
 
 1、2025-06-25: [打印三角形](./1-base/triangle.py)
 > 学习一下python的语法。
