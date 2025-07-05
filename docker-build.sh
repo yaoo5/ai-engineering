@@ -1,1 +1,1 @@
-docker build -t ubuntu-
+docker build -t ubuntu-py-playwright .
