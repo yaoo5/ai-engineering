@@ -21,6 +21,10 @@ RUN apt-get update && apt-get install -y \
     libatspi2.0-0 \
     libxcomposite1
 
+# 设置 pip 国内源(服务器安装卡住了，所以需要配置镜像源)
+RUN pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
+    pip3 config set global.trusted-host pypi.tuna.tsinghua.edu.cn
+
 # 安装 Python 依赖
 RUN pip3 install requests beautifulsoup4 playwright
 
