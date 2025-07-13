@@ -40,4 +40,4 @@
 
 - [爬虫篇｜如何爬取动态网站](https://github.com/yaoo5/python-engineering/issues/4) - 爬取掘金文章列表
 
-- [爬虫篇｜如何使用docker运行python脚本](https://github.com/yaoo5/python-engineering/issues/1) - Docker部署解决环境安装问题
+- [爬虫篇｜如何使用docker运行python脚本](https://github.com/yaoo5/python-engineering/issues/1) - 解决部署时环境安装问题
