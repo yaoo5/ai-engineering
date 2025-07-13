@@ -33,3 +33,11 @@
 7、 2025-07-03: [爬虫篇｜掘金文章](./2-spider/juejinSpider.py)
 
 > 自己想写的，单页面应用得用selenium或playwright，我选了playwright安装更方便。
+
+## 文章
+
+- [爬虫篇｜如何爬取静态网站](https://github.com/yaoo5/python-engineering/issues/2) - 爬取科技爱好者周刊
+
+- [爬虫篇｜如何爬取动态网站](https://github.com/yaoo5/python-engineering/issues/4) - 爬取掘金文章列表
+
+- [爬虫篇｜如何使用docker运行python脚本](https://github.com/yaoo5/python-engineering/issues/1) - Docker部署解决环境安装问题
